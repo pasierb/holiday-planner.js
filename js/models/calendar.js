@@ -4,6 +4,21 @@ define([
   'backbone'
 ], function ($, _, Backbone) {
   var calendarModel = Backbone.Model.extend({
+    print: function () {
+      var date = new Date();
+      var result = "<table><tbody";
+
+      date.setFullYear(this.get('year'));
+      date.setMonth(0);
+
+      while (date.getFullYear() === this.get('year')) {
+        result += this.printMonth(date.getMonth());
+        date.setMonth(date.getMonth()+1);
+      }
+
+      return result;
+    },
+
     printMonth: function (index) {
       var date = new Date();
       var result = "<tr><td>"+index+"</td>";

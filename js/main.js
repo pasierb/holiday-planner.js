@@ -19,7 +19,7 @@ require.config({
     bootstrap: "libs/bootstrap/bootstrap",
     text: "libs/require/text",
     templates: "../templates",
-    models: "../models"
+    models: "models"
   }
 });
 
