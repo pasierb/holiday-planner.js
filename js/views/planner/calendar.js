@@ -15,6 +15,7 @@ define([
     },
     dayClickHandler: function (e) {
       e.preventDefault();
+      $(e.target).toggleClass("leave");
       console.log(e.target);
     }
   });

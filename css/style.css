@@ -2,12 +2,27 @@
 .calendar-container .month {}
 .calendar-container .month .heading, .calendar-container .month .empty, .calendar-container .month .day-container {
   display: inline-block;
-  width: 20px;
+  width: 22px;
   text-align: center;
+  margin: 0 1px;
 }
 .calendar-container .month .heading {}
 .calendar-container .month .empty {}
 .calendar-container .month .day-container {}
-.calendar-container .month .day-container .day-label {}
-.calendar-container .month .day-container .day {}
+.calendar-container .month .day-container .day-label {
+  font-size: 8px;
+  margin-top: 7px;
+}
+.calendar-container .month .day-container .day, .calendar-container .month .day-container .weekend {
+  border: 1px solid #c3c3c3;
+  height: 25px;
+  font-size: 11px;
+  padding-top: 8px;
+}
+.calendar-container .month .day-container .day {
+  display: block;
+}
+.calendar-container .month .day-container .day.leave {
+  background: url('/img/day_free.png') -2px 50% no-repeat;
+}
 .calendar-container .month .day-container .weekend {}
