@@ -32,8 +32,8 @@ describe("Calendar", function () {
       date.setMonth(0);
       date.setDate(2);
       expect(calendar.printDay(date)).toEqual(""+
-        "<td><div class=\"day-label\">2</div>"+
-        "<a class=\"day\" href=\"#\"></a></td>"
+        "<div class=\"day-container\"><div class=\"day-label\">3</div>"+
+        "<a class=\"day\" href=\"#\">2</a></div>"
       );
     });
 
@@ -43,8 +43,8 @@ describe("Calendar", function () {
       date.setMonth(0);
       date.setDate(5);
       expect(calendar.printDay(date)).toEqual(""+
-        "<td><div class=\"day-label\">5</div>"+
-        "<div class=\"weekend\"></div></td>"
+        "<div class=\"day-container\"><div class=\"day-label\">6</div>"+
+        "<div class=\"weekend\">5</div></div>"
       );
     });
 

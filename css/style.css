@@ -1,0 +1,13 @@
+.calendar-container {}
+.calendar-container .month {}
+.calendar-container .month .heading, .calendar-container .month .empty, .calendar-container .month .day-container {
+  display: inline-block;
+  width: 20px;
+  text-align: center;
+}
+.calendar-container .month .heading {}
+.calendar-container .month .empty {}
+.calendar-container .month .day-container {}
+.calendar-container .month .day-container .day-label {}
+.calendar-container .month .day-container .day {}
+.calendar-container .month .day-container .weekend {}
