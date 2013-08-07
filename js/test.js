@@ -49,8 +49,7 @@ require(['underscore', 'jquery', 'jasmine-html'], function(_, $, jasmine){
 
   var specs = [];
 
-  specs.push('spec/CalendarSpec');
-
+  specs.push('spec/models/CalendarSpec');
 
   $(function(){
     require(specs, function(){
