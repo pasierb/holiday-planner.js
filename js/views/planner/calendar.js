@@ -14,6 +14,7 @@ define([
       "click .day": "dayClickHandler"
     },
     dayClickHandler: function (e) {
+      console.log(this);
       e.preventDefault();
       $(e.target).toggleClass("leave");
       console.log(e.target);
