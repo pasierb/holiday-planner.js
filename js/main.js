@@ -17,6 +17,7 @@ require.config({
     underscore: "libs/underscore/underscore",
     backbone: "libs/backbone/backbone",
     bootstrap: "libs/bootstrap/bootstrap",
+    public_holidays: "libs/public_holidays/public_holidays",
     text: "libs/require/text",
     templates: "../templates",
     models: "models"

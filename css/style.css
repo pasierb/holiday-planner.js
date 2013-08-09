@@ -23,6 +23,16 @@
   display: block;
 }
 .calendar-container .month .day-container .day.leave {
-  background: url('/img/day_free.png') -2px 50% no-repeat;
+  background: yellow url('/img/day_free.png') -2px 50% no-repeat;
 }
-.calendar-container .month .day-container .weekend {}
+.calendar-container .month .day-container .weekend {
+  background-color: #777;
+  background-image: url('/img/day_weekend.png');
+}
+.calendar-container .month .day-container .holiday {
+  background-color: #bc2e2e;
+  background-image: url('/img/day_holiday.png');
+}
+.calendar-container .month .day-container .period {
+  background-color: yellow;
+}

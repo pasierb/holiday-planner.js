@@ -30,7 +30,6 @@ describe("CalendarView", function () {
       $("body").append(container);
       view = new this.CalendarView();
       view.render();
-      console.log(view.$el);
     });
 
     afterEach(function () {
