@@ -76,7 +76,7 @@ define([
       var $nextDay = this.nextDay(nextDate);
       var $prevDay = this.prevDay(prevDate);
 
-      $day.removeClass("leave");
+      $day.removeClass("period");
 
       while ($nextDay.attr("class").match(/(period|leave)/)) {
         $nextDay.removeClass("period");
