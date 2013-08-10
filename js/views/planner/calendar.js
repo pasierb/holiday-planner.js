@@ -2,18 +2,36 @@ define([
   'jquery',
   'underscore',
   'backbone',
+  'text!templates/planner',
+  'views/planner/year_changer',
   'models/day',
   'models/calendar',
   'collections/leave'
-], function ($, _, Backbone, Day, Calendar, Leave) {
+], function ($, _, Backbone, plannerTemplate, YearChangerView, Day, Calendar, Leave) {
   var CalendarView = Backbone.View.extend({
-    initialize: function () {
+    initialize: function (options) {
+      var year = (new Date()).getFullYear();
+      _.bindAll(this, "setYear");
+      options.vent.bind("setYear", this.setYear);
       this.leave = new Leave();
-      this.calendar = new Calendar({ year: 2013 });
+      this.calendar = new Calendar({ year: year });
+      var yearChangerView = new YearChangerView({ vent: options.vent, year: year });
     },
     el: ".page",
     render: function () {
-      this.$el.html(this.calendar.print());
+      this.$el.html(plannerTemplate);
+      $('#planner-tabs a', this.$el).click(function (e) {
+        e.preventDefault();
+        $(this).tab('show');
+        return false;
+      });
+
+      $('#planner-tabs a:first', this.$el).tab("show");
+      $('#planner-calendar', this.$el).html((this.calendar.print()));
+    },
+    setYear: function (year) {
+      this.calendar = new Calendar({ year: year });
+      this.render();
     },
     events: {
       "click .day": "dayClickHandler"
@@ -60,6 +78,8 @@ define([
       var prevDate = (new Date($day.data('date')));
       var nextDay = this.nextDay(nextDate);
       var prevDay = this.prevDay(prevDate);
+
+      $day.addClass("period");
 
       while (nextDay.attr("class").match(/(weekend|holiday|leave)/)) {
         nextDay.addClass("period");

@@ -1,3 +1,23 @@
+body {
+  background: url('/img/back.png') 0 0 no-repeat #fefefe;
+  background-attachment: fixed;
+  padding-top: 20px;
+}
+h1.logo {
+  background: transparent url('/img/logo.png') no-repeat 0px 0px;
+  width: 248px;
+  height: 45px;
+  text-indent: -9999em;
+  display: inline-block;
+}
+h2#year-holder {
+  display: inline-block;
+  margin-left: 40px;
+}
+.page-container { margin-top: 10px; }
+.page {
+  background-color: rgba(255, 255, 255, 0.8);
+}
 .calendar-container {}
 .calendar-container .month {}
 .calendar-container .month .heading, .calendar-container .month .empty, .calendar-container .month .day-container {

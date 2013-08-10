@@ -2,14 +2,13 @@ define([
   'jquery',
   'underscore',
   'backbone',
-  'text!templates/layout.html'
-], function ($, _, Backbone, layoutTemplate) {
+  'events'
+], function ($, _, Backbone, vent) {
   var AppView = Backbone.View.extend({
-    el: ".container",
+    el: ".page-container",
     render: function () {
-      this.$el.html(layoutTemplate);
       require(['views/planner/calendar'], function (CalendarView) {
-        var calendarView = new CalendarView();
+        var calendarView = new CalendarView({ vent: vent });
         calendarView.render();
       });
     }
