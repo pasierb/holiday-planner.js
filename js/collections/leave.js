@@ -2,10 +2,12 @@ define([
   'jquery',
   'underscore',
   'backbone',
+  'localstorage',
   'models/day'
-], function ($, _, Backbone, Day) {
+], function ($, _, Backbone, LocalStorage, Day) {
   var leaveModel = Backbone.Collection.extend({
-    model: Day
+    model: Day,
+    localStorage: new Backbone.LocalStorage("hp-leave")
   });
 
   return leaveModel;

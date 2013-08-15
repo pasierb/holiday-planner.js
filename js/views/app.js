@@ -7,8 +7,8 @@ define([
   var AppView = Backbone.View.extend({
     el: ".page-container",
     render: function () {
-      require(['views/planner/calendar'], function (CalendarView) {
-        var calendarView = new CalendarView({ vent: vent });
+      require(['views/planner/page'], function (PlannerPage) {
+        var calendarView = new PlannerPage({ vent: vent });
         calendarView.render();
       });
     }

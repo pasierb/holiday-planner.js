@@ -41,6 +41,7 @@ h2#year-holder {
 }
 .calendar-container .month .day-container .day {
   display: block;
+  cursor: pointer;
 }
 .calendar-container .month .day-container .day.leave {
   background: yellow url('/img/day_free.png') -2px 50% no-repeat;

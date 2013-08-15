@@ -16,6 +16,7 @@ require.config({
     jquery: "libs/jquery/jquery-2.0.3",
     underscore: "libs/underscore/underscore",
     backbone: "libs/backbone/backbone",
+    localstorage: "libs/backbone/localStorage.min",
     bootstrap: "libs/bootstrap/bootstrap",
     public_holidays: "libs/public_holidays/public_holidays",
     text: "libs/require/text",
