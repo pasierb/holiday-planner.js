@@ -17,11 +17,8 @@ define([
     },
     recalculate: function () {
       var $calendar = $(".calendar-container", this.$el);
-      var $leave = $(".leave", $calendar);
-      var $period = $(".period", $calendar);
-      $("#leave-count", this.$el).html($leave.length);
-      $("#period-count", this.$el).html($period.length);
-      console.log ($leave.length+" - "+$period.length);
+      $("#leave-count", this.$el).html($(".leave", $calendar).length);
+      $("#period-count", this.$el).html($(".period", $calendar).length);
     }
   });
 

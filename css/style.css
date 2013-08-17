@@ -57,3 +57,6 @@ h2#year-holder {
 .calendar-container .month .day-container .period {
   background-color: yellow;
 }
+.tab-pane { padding: 10px; }
+.info-bar { margin: 5px; }
+#leave-count, #period-count { font-weight: bold; }
