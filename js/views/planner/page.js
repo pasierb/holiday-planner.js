@@ -5,7 +5,7 @@ define([
   'text!templates/planner',
   'views/planner/year_changer',
   'views/planner/calendar'
-], function ($, _, Backbone, plannerTemplate, YearChangerView, CalendarView) {
+], function ($, _, Backbone, plannerTemplate, YearChangerView, CalendarView, InfoBarView) {
   var PlannerPage = Backbone.View.extend({
     initialize: function (options) {
       this.year = 2013;
@@ -16,13 +16,14 @@ define([
     render: function () {
       this.$el.html(plannerTemplate);
       var calendarView = new CalendarView({ year: this.year, vent: this.vent });
+
       $('#planner-tabs a', this.$el).click(function (e) {
         e.preventDefault();
         $(this).tab('show');
-        return false;
       });
 
       $('#planner-tabs a:first', this.$el).tab("show");
+
       calendarView.render();
     }
   });

@@ -5,9 +5,10 @@ define([
   'text!templates/planner',
   'views/planner/year_changer',
   'views/planner/day',
+  'views/planner/info_bar',
   'models/day',
   'collections/leave'
-], function ($, _, Backbone, plannerTemplate, YearChangerView, DayView, Day, Leave) {
+], function ($, _, Backbone, plannerTemplate, YearChangerView, DayView, InfoBarView, Day, Leave) {
   var CalendarView = Backbone.View.extend({
     initialize: function (options) {
       this.year = options.year || (new Date()).getFullYear();
@@ -22,13 +23,17 @@ define([
     },
     setYear: function (year) {
       this.year = year;
+      this.$el.html("");
       this.render();
     },
     el: "#planner-calendar",
     render: function () {
-      var that = this;
       this.publicHolidays = this.publicHolidaysMap();
+
+      var that = this;
       var date = new Date();
+      var infoBarView = new InfoBarView({ vent: this.vent });
+
       $result = $("<div></div>", {class: "calendar-container"});
 
       date.setFullYear(this.year);
@@ -38,7 +43,9 @@ define([
         $result.append(this.renderMonth(date.getMonth()));
         date.setMonth(date.getMonth()+1);
       }
-      this.$el.html($result);
+
+      infoBarView.render();
+      this.$el.append($result);
 
       this.leave.fetch({ success: function (res) {
         _.each(res.models, function (dayModel) {
