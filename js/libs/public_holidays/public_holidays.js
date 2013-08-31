@@ -150,27 +150,24 @@ PublicHolidays = {
     }), "new_year");
   },
   easter: function(year) {
-    var C, D, I, J, K, L, M, N, Y, date;
+    var a, b, c, d, date, e, f, g, h, i, k, l, m, n, n0, p;
 
-    if (!year) {
-      year = Date.today().getFullYear();
-    }
-    Y = year;
-    C = Math.floor(Y / 100);
-    N = Y - 19 * Math.floor(Y / 19);
-    K = Math.floor((C - 17) / 25);
-    I = C - Math.floor(C / 4) - Math.floor((C - K) / 3) + 19 * N + 15;
-    I = I - 30 * Math.floor(I / 30);
-    I = I - Math.floor(I / 28) * (1 - Math.floor(I / 28) * Math.floor(29 / (I + 1)) * Math.floor((21 - N) / 11));
-    J = Y + Math.floor(Y / 4) + I + 2 - C + Math.floor(C / 4);
-    J = J - 7 * Math.floor(J / 7);
-    L = I - J;
-    M = 3 + Math.floor((L + 40) / 44);
-    D = L + 28 - 31 * Math.floor(M / 4);
-    date = new Date();
-    date.setYear(Y);
-    date.setMonth(M - 1);
-    date.setDate(D);
+    a = year % 19;
+    b = Math.floor(year / 100);
+    c = year % 100;
+    d = Math.floor(b / 4);
+    e = b % 4;
+    f = Math.floor((b + 8) / 25);
+    g = Math.floor((b - f + 1) / 3);
+    h = (19 * a + b - d - g + 15) % 30;
+    i = Math.floor(c / 4);
+    k = c % 4;
+    l = (32 + 2 * e + 2 * i - h - k) % 7;
+    m = Math.floor((a + 11 * h + 22 * l) / 451);
+    n0 = h + l + 7 * m + 114;
+    n = Math.floor(n0 / 31) - 1;
+    p = n0 % 31 + 1;
+    date = new Date(year, n, p);
     return new PublicHolidays.Day(date, 'easter');
   }
 };
@@ -187,42 +184,45 @@ PublicHolidays.Day = function(date, code) {
 
 PublicHolidays.registerFactory("pl", {
   holidays: function(year) {
-    var context;
-
-    context = Date.today().set({
-      year: year
-    });
     return [
-      PublicHolidays.newYear(year), new PublicHolidays.Day(context.set({
+      PublicHolidays.newYear(year), new PublicHolidays.Day((Date.today()).set({
         day: 6,
-        month: 0
+        month: 0,
+        year: year
       }), "three_kings"), PublicHolidays.easter(year), new PublicHolidays.Day(PublicHolidays.easter(year).date.add({
         days: 1
       }), "easter_monday"), new PublicHolidays.Day(PublicHolidays.easter(year).date.add({
         days: 48
       }), "pentecost"), new PublicHolidays.Day(PublicHolidays.easter(year).date.add({
         days: 60
-      }), "corpus_christi"), new PublicHolidays.Day(context.set({
+      }), "corpus_christi"), new PublicHolidays.Day((Date.today()).set({
         day: 1,
-        month: 4
-      }), "first_of_may"), new PublicHolidays.Day(context.set({
-        day: 1,
-        month: 4
-      }), "third_of_may"), new PublicHolidays.Day(context.set({
+        month: 4,
+        year: year
+      }), "first_of_may"), new PublicHolidays.Day((Date.today()).set({
+        day: 3,
+        month: 4,
+        year: year
+      }), "third_of_may"), new PublicHolidays.Day((Date.today()).set({
         day: 15,
-        month: 7
-      }), "maria"), new PublicHolidays.Day(context.set({
+        month: 7,
+        year: year
+      }), "maria"), new PublicHolidays.Day((Date.today()).set({
         day: 1,
-        month: 10
-      }), "all_saints"), new PublicHolidays.Day(context.set({
+        month: 10,
+        year: year
+      }), "all_saints"), new PublicHolidays.Day((Date.today()).set({
         day: 11,
-        month: 10
-      }), "independence_day"), new PublicHolidays.Day(context.set({
+        month: 10,
+        year: year
+      }), "independence_day"), new PublicHolidays.Day((Date.today()).set({
         day: 25,
-        month: 11
-      }), "christmas"), new PublicHolidays.Day(context.set({
+        month: 11,
+        year: year
+      }), "christmas"), new PublicHolidays.Day((Date.today()).set({
         day: 26,
-        month: 11
+        month: 11,
+        year: year
       }), "boxing_day")
     ];
   }
@@ -230,44 +230,47 @@ PublicHolidays.registerFactory("pl", {
 
 PublicHolidays.registerFactory('at', {
   holidays: function(year) {
-    var context;
-
-    context = Date.today().set({
-      year: year
-    });
     return [
-      PublicHolidays.newYear(year), new PublicHolidays.Day(context.set({
+      PublicHolidays.newYear(year), new PublicHolidays.Day((Date.today()).set({
         day: 6,
-        month: 0
+        month: 0,
+        year: year
       }), "three_kings"), new PublicHolidays.Day(PublicHolidays.easter(year).date.add({
         days: 1
-      }), "easter_monday"), new PublicHolidays.Day(context.set({
+      }), "easter_monday"), new PublicHolidays.Day((Date.today()).set({
         month: 4,
-        day: 1
+        day: 1,
+        year: year
       }), "labour_day"), new PublicHolidays.Day(PublicHolidays.easter(year).date.add({
         days: 39
       }), "feast_of_the_ascension"), new PublicHolidays.Day(PublicHolidays.easter(year).date.add({
         days: 48
       }), "pentecost"), new PublicHolidays.Day(PublicHolidays.easter(year).date.add({
         days: 60
-      }), "corpus_christi"), new PublicHolidays.Day(context.set({
+      }), "corpus_christi"), new PublicHolidays.Day((Date.today()).set({
         month: 7,
-        day: 15
-      }), "assumption_of_mary"), new PublicHolidays.Day(context.set({
+        day: 15,
+        year: year
+      }), "maria"), new PublicHolidays.Day((Date.today()).set({
         month: 9,
-        day: 26
-      }), "austrian_national_day"), new PublicHolidays.Day(context.set({
+        day: 26,
+        year: year
+      }), "austrian_national_day"), new PublicHolidays.Day((Date.today()).set({
         month: 10,
-        day: 1
-      }), "all_saints"), new PublicHolidays.Day(context.set({
+        day: 1,
+        year: year
+      }), "all_saints"), new PublicHolidays.Day((Date.today()).set({
         month: 11,
-        day: 8
-      }), "immaculate_conception"), new PublicHolidays.Day(context.set({
+        day: 8,
+        year: year
+      }), "immaculate_conception"), new PublicHolidays.Day((Date.today()).set({
         month: 11,
-        day: 25
-      }), "christmas"), new PublicHolidays.Day(context.set({
+        day: 25,
+        year: year
+      }), "christmas"), new PublicHolidays.Day((Date.today()).set({
         month: 11,
-        day: 26
+        day: 26,
+        year: year
       }), "st_stephen")
     ];
   }
