@@ -10,20 +10,20 @@ define([
     },
     el: "#settings-container",
     events: {
-      "click .location-select a": "setLocation"
+      "click .location-select a": "clickLocation"
     },
-    setLocation: function (e) {
-      PublicHolidays.setFactory(this.location);
-
+    clickLocation: function (e) {
       var $target = $(e.target);
-      var $ok = $(".location-select .glyphicon-ok", this.$el).remove();
       var location = $target.data('value');
-
       this.vent.trigger("setLocation", location);
-      $("#settings-location-label", this.$el).html($target.html());
-      $target.prepend($ok);
-
+      this.setLocation($target.html(), location);
       e.preventDefault();
+    },
+    setLocation: function (name, code) {
+      PublicHolidays.setFactory(code);
+      var $ok = $(".location-select .glyphicon-ok", this.$el).remove();
+      $("#settings-location-label", this.$el).html(name);
+      $("a[data-value='"+code+"']", this.$el).prepend($ok);
     },
     render: function () {
       this.$el.html(settingsTemplate);

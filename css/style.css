@@ -1,7 +1,7 @@
 body {
   background: url('/img/back.png') 0 0 no-repeat #fefefe;
   background-attachment: fixed;
-  padding-top: 20px;
+  padding-top: 30px;
 }
 h1.logo {
   background: transparent url('/img/logo.png') no-repeat 0px 0px;
@@ -60,3 +60,11 @@ h2#year-holder {
 .tab-pane { padding: 10px; }
 .info-bar { margin: 5px; }
 #leave-count, #period-count { font-weight: bold; }
+
+.navbar-fixed-top { min-height: 40px; }
+footer {
+  text-align: center;
+  padding: 20px;
+  margin-top: 20px;
+  border-top: 1px solid #aaa;
+}
