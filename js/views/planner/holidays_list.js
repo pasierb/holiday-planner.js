@@ -8,12 +8,17 @@ define([
     initialize: function (options) {
       this.year = options.year;
 
-      _.bindAll(this, "setYear");
+      _.bindAll(this, "setYear", "setLocation");
       options.vent.bind("setYear", this.setYear);
+      options.vent.bind("setLocation", this.setLocation);
     },
     el: "#planner-list",
     setYear: function (year) {
       this.year = year;
+      this.render();
+    },
+    setLocation: function (location) {
+      this.location = location;
       this.render();
     },
     render: function () {

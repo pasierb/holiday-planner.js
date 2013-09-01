@@ -17,22 +17,29 @@
   <script data-main="js/main" src="js/libs/require/require.js"></script>
 </head>
 <body>
-
-  <!-- Initially populated by templates/layout.html -->
   <div class="container container_16">
+    <div id="settings-container">
+    </div>
+
     <h1 class="logo">HolidayPlanner</h1>
     <h2 id="year-holder">
       <a href="/?year=2012" class="year-change year-change-minus"><img alt="Prev" src="/img/prev.gif"></a>
       <span class="year">2013</span>
       <a href="/?year=2014" class="year-change year-change-plus"><img alt="Next" src="/img/next.gif"></a>
     </h2>
-    <div class="pull-right">
-      <a data-toggle="modal" href="#myModal" class="btn btn-primary">Launch demo modal</a>
-    </div>
 
     <div class="page-container">
-      <div class="page"></div>
+      <div class="page">
+        Loading...
+      </div>
     </div>
   </div>
+  <footer>
+    <div class="container">
+      <p>
+        &copy; Copyright 2010 - 2013 <a href="http://sooftly.com">Sooftly</a>. All rights reserved.
+      </p>
+    </div>
+  </footer>
 </body>
 </html>

@@ -12,22 +12,27 @@ define([
   var CalendarView = Backbone.View.extend({
     initialize: function (options) {
       this.year = options.year || (new Date()).getFullYear();
-      this.localization = "pl";
+      this.location = "pl";
       this.vent = options.vent;
       this.leave = new Leave();
 
-      _.bindAll(this, "setYear", "markDay", "unmarkDay");
+      _.bindAll(this, "setYear", "markDay", "unmarkDay", "setLocation");
       options.vent.bind("setYear", this.setYear);
       options.vent.bind("markDay", this.markDay);
       options.vent.bind("unmarkDay", this.unmarkDay);
+      options.vent.bind("setLocation", this.setLocation);
     },
     setYear: function (year) {
       this.year = year;
-      this.$el.html("");
+      this.render();
+    },
+    setLocation: function (location) {
+      this.location = location;
       this.render();
     },
     el: "#planner-calendar",
     render: function () {
+      this.$el.html("");
       this.publicHolidays = this.publicHolidaysMap();
 
       var that = this;
@@ -84,7 +89,7 @@ define([
     },
     publicHolidaysMap: function () {
       var map = {};
-      PublicHolidays.setFactory(this.localization);
+      PublicHolidays.setFactory(this.location);
       var publicHolidays = PublicHolidays.all(this.year);
       _.each(publicHolidays, function (holiday) {
         var key = (holiday.date.getMonth()+1)+"-"+holiday.date.getDate()+"-"+holiday.date.getFullYear();
