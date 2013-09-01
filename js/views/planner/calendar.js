@@ -13,10 +13,10 @@ define([
     initialize: function (options) {
       this.year = options.year || (new Date()).getFullYear();
       this.localization = "pl";
-      _.bindAll(this, "setYear", "markDay", "unmarkDay");
       this.vent = options.vent;
       this.leave = new Leave();
-      window.leave = this.leave;
+
+      _.bindAll(this, "setYear", "markDay", "unmarkDay");
       options.vent.bind("setYear", this.setYear);
       options.vent.bind("markDay", this.markDay);
       options.vent.bind("unmarkDay", this.unmarkDay);
@@ -90,7 +90,6 @@ define([
         var key = (holiday.date.getMonth()+1)+"-"+holiday.date.getDate()+"-"+holiday.date.getFullYear();
         map[key] = holiday;
       });
-      window.ph = map;
       return map;
     },
     markDay: function ($day, day) {
