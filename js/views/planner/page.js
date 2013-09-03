@@ -9,6 +9,8 @@ define([
 ], function ($, _, Backbone, plannerTemplate, YearChangerView, CalendarView, HolidaysListView) {
   var PlannerPage = Backbone.View.extend({
     initialize: function (options) {
+      PublicHolidays.setFactory("pl");
+
       this.year = 2013;
       this.vent = options.vent;
 
