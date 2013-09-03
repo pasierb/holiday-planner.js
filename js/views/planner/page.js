@@ -9,7 +9,7 @@ define([
 ], function ($, _, Backbone, plannerTemplate, YearChangerView, CalendarView, HolidaysListView) {
   var PlannerPage = Backbone.View.extend({
     initialize: function (options) {
-      this.year = 2013;
+      this.year = (new Date()).getFullYear();
       this.vent = options.vent;
 
       new YearChangerView({ vent: this.vent, year: this.year });

@@ -2,13 +2,14 @@ define([
   'jquery',
   'underscore',
   'backbone',
+  'i18next',
   'text!templates/planner',
   'views/planner/year_changer',
   'views/planner/day',
   'views/planner/info_bar',
   'models/day',
   'collections/leave'
-], function ($, _, Backbone, plannerTemplate, YearChangerView, DayView, InfoBarView, Day, Leave) {
+], function ($, _, Backbone, i18n, plannerTemplate, YearChangerView, DayView, InfoBarView, Day, Leave) {
   var CalendarView = Backbone.View.extend({
     initialize: function (options) {
       this.year = options.year || (new Date()).getFullYear();
@@ -65,7 +66,7 @@ define([
       var $heading = $("<div></div>", {class: "heading"});
       var dayView;
 
-      $heading.html(index);
+      $heading.html(i18n.t("date.month."+index));
       $month.append($heading);
 
       date.setFullYear(this.year);

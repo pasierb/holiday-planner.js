@@ -26,7 +26,11 @@ h2#year-holder {
   text-align: center;
   margin: 0 1px;
 }
-.calendar-container .month .heading {}
+.calendar-container .month .heading {
+  width: 100px;
+  text-align: left;
+  font-weight: bold;
+}
 .calendar-container .month .empty {}
 .calendar-container .month .day-container {}
 .calendar-container .month .day-container .day-label {
