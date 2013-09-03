@@ -2,8 +2,9 @@ define([
   'jquery',
   'underscore',
   'backbone',
+  'i18next',
   'models/day'
-], function ($, _, Backbone, Day) {
+], function ($, _, Backbone, i18n, Day) {
   var DayView = Backbone.View.extend({
     className: "day-container",
     initialize: function (options) {
@@ -57,7 +58,7 @@ define([
         title = this.holiday.name;
       }
 
-      this.$el.append($("<div></div>", { class: "day-label", html: date.getDay() }));
+      this.$el.append($("<div></div>", { class: "day-label", html: i18n.t("date.weekday."+date.getDay()) }));
       this.$el.append($("<"+tagName+"></"+tagName+">", {
         class: cssClasses.join(" "),
         html: date.getDate(),

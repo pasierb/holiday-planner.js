@@ -10,8 +10,7 @@ define([
   var PlannerPage = Backbone.View.extend({
     initialize: function (options) {
       PublicHolidays.setFactory("pl");
-
-      this.year = 2013;
+      this.year = (new Date()).getFullYear();
       this.vent = options.vent;
 
       new YearChangerView({ vent: this.vent, year: this.year });
