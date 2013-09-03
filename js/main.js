@@ -27,7 +27,8 @@ require.config({
 });
 
 require(['i18next','bootstrap','views/app'], function (i18n, Bootstrap, AppView) {
-  i18n.init({ lng: 'en' });
-  var app = new AppView();
-  app.render();
+  i18n.init({ lng: 'en' }, function () {
+    var app = new AppView();
+    app.render();
+  });
 });
