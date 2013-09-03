@@ -1,10 +1,10 @@
 body {
-  background: url('/img/back.png') 0 0 no-repeat #fefefe;
+  background: url('../img/back.png') 0 0 no-repeat #fefefe;
   background-attachment: fixed;
   padding-top: 30px;
 }
 h1.logo {
-  background: transparent url('/img/logo.png') no-repeat 0px 0px;
+  background: transparent url('../img/logo.png') no-repeat 0px 0px;
   width: 248px;
   height: 45px;
   text-indent: -9999em;
@@ -44,15 +44,15 @@ h2#year-holder {
   cursor: pointer;
 }
 .calendar-container .month .day-container .day.leave {
-  background: yellow url('/img/day_free.png') -2px 50% no-repeat;
+  background: yellow url('../img/day_free.png') -2px 50% no-repeat;
 }
 .calendar-container .month .day-container .weekend {
   background-color: #777;
-  background-image: url('/img/day_weekend.png');
+  background-image: url('../img/day_weekend.png');
 }
 .calendar-container .month .day-container .holiday {
   background-color: #bc2e2e;
-  background-image: url('/img/day_holiday.png');
+  background-image: url('../img/day_holiday.png');
 }
 .calendar-container .month .day-container .period {
   background-color: yellow;
