@@ -26,6 +26,9 @@ h2#year-holder {
   text-align: center;
   margin: 0 1px;
 }
+.calendar-container .month .days {
+  display: inline-block;
+}
 .calendar-container .month .heading {
   width: 100px;
   text-align: left;
@@ -48,6 +51,11 @@ h2#year-holder {
   cursor: pointer;
 }
 .calendar-container .month .day-container .day.leave {
+  -webkit-animation: leave 0.3s;
+  -moz-animation: leave 0.3s;
+  -ms-animation: leave 0.3s;
+  -o-animation: leave 0.3s;
+  animation: leave 0.3s;
   background: yellow url('../img/day_free.png') -2px 50% no-repeat;
 }
 .calendar-container .month .day-container .weekend {
@@ -59,6 +67,11 @@ h2#year-holder {
   background-image: url('../img/day_holiday.png');
 }
 .calendar-container .month .day-container .period {
+  -webkit-animation: period 0.3s;
+  -moz-animation: period 0.3s;
+  -ms-animation: period 0.3s;
+  -o-animation: period 0.3s;
+  animation: period 0.3s;
   background-color: yellow;
 }
 .tab-pane { padding: 10px; }
@@ -71,4 +84,51 @@ footer {
   padding: 20px;
   margin-top: 20px;
   border-top: 1px solid #aaa;
+}
+
+/*
+ * Animations
+ */
+
+@-webkit-keyframes period {
+  0% { background-color: transparent; }
+  100% { background-color: yellow; }
+}
+@-moz-keyframes period {
+  0% { background-color: transparent; }
+  100% { background-color: yellow; }
+}
+@-ms-keyframes period {
+  0% { background-color: transparent; }
+  100% { background-color: yellow; }
+}
+@-o-keyframes period {
+  0% { background-color: transparent; }
+  100% { background-color: yellow; }
+}
+@keyframes period {
+  0% { background-color: transparent; }
+  100% { background-color: yellow; }
+}
+
+
+@-webkit-keyframes leave {
+  0% { background-position-y: -20px; }
+  100% { background-position-y: -2px; }
+}
+@-moz-keyframes leave {
+  0% { background-position-y: -20px; }
+  100% { background-position-y: -2px; }
+}
+@-ms-keyframes leave {
+  0% { background-position-y: -20px; }
+  100% { background-position-y: -2px; }
+}
+@-o-keyframes leave {
+  0% { background-position-y: -20px; }
+  100% { background-position-y: -2px; }
+}
+keyframes leave {
+  0% { background-position-y: -20px; }
+  100% { background-position-y: -2px; }
 }

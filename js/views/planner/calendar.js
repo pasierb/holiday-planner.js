@@ -64,6 +64,7 @@ define([
       var date = new Date();
       var $month = $("<div></div>", {class: "month"});
       var $heading = $("<div></div>", {class: "heading"});
+      var $days = $("<div></div>", {class: "days"});
       var dayView;
 
       $heading.html(i18n.t("date.month."+index));
@@ -74,7 +75,7 @@ define([
       date.setDate(1);
 
       for (var i=0; i<date.getDay(); i++) {
-        $month.append($("<div></div>", {class: "empty"}));
+        $days.append($("<div></div>", {class: "empty"}));
       }
       while (date.getMonth() == index) {
         dayView = new DayView({
@@ -82,9 +83,10 @@ define([
           vent: this.vent,
           holiday: this.publicHolidays[this.dateString(date)]
         });
-        $month.append(dayView.render().$el);
+        $days.append(dayView.render().$el);
         date.setDate(date.getDate()+1);
       }
+      $month.append($days);
 
       return $month;
     },
