@@ -10,11 +10,12 @@ module.exports = function(grunt) {
             }
         },
         watch: {
-            scripts: {
-                files: 'js/**/*.js',
-                options: {
-                    livereload: true
-                }
+            //scripts: {
+            //    files: 'js/**/*.js',
+            //},
+            css: {
+                files: 'css/**/*.css',
+                tasks: ['cssmin']
             }
         },
         jsbeautifier: {

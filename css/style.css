@@ -3,8 +3,13 @@ body {
   background-attachment: fixed;
   padding-top: 30px;
 }
+
+.sprites { background: url('../img/sprites.png') no-repeat; }
+.next { width: 20px; height: 23px; background-position: -275px 0; }
+.prev { width: 20px; height: 23px; background-position: -296px 0; }
+
 h1.logo {
-  background: transparent url('../img/logo.png') no-repeat 0px 0px;
+  background: transparent url('../img/sprites.png') no-repeat -26px 0px;
   width: 248px;
   height: 45px;
   text-indent: -9999em;
@@ -13,6 +18,9 @@ h1.logo {
 h2#year-holder {
   display: inline-block;
   margin-left: 40px;
+}
+h2#year-holder a {
+  display: inline-block;
 }
 .page-container { margin-top: 10px; }
 .page {
@@ -47,16 +55,15 @@ h2#year-holder {
   display: block;
   cursor: pointer;
 }
+
 .calendar-container .month .day-container .day.leave {
-  background: yellow url('../img/day_free.png') -2px 50% no-repeat;
+  background: yellow url('../img/sprites.png') -275px -24px no-repeat;
 }
 .calendar-container .month .day-container .weekend {
-  background-color: #777;
-  background-image: url('../img/day_weekend.png');
+  background: #777 url('../img/sprites.png') 0px 0px no-repeat;
 }
 .calendar-container .month .day-container .holiday {
-  background-color: #bc2e2e;
-  background-image: url('../img/day_holiday.png');
+  background: #bc2e2e url('../img/sprites.png') -301px -24px no-repeat;
 }
 .calendar-container .month .day-container .period {
   background-color: yellow;
