@@ -2,7 +2,7 @@ define([
   'jquery',
   'underscore',
   'backbone',
-  'text!templates/calendar/info_bar'
+  'text!templates/calendar/info_bar.html'
 ], function ($, _, Backbone, infoBarTemplate) {
   var InfoBarView = Backbone.View.extend({
     initialize: function (options) {

@@ -2,7 +2,7 @@ define([
   'jquery',
   'underscore',
   'backbone',
-  'text!templates/settings'
+  'text!templates/settings.html'
 ], function ($, _, Backbone, settingsTemplate) {
   var SettingsView = Backbone.View.extend({
     initialize: function (options) {

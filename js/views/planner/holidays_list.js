@@ -2,7 +2,7 @@ define([
   'jquery',
   'underscore',
   'backbone',
-  'text!templates/calendar/holidays_list'
+  'text!templates/calendar/holidays_list.html'
 ], function ($, _, Backbone, listTemplate) {
   var HolidaysListView = Backbone.View.extend({
     initialize: function (options) {

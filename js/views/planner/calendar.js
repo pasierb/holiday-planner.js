@@ -3,7 +3,7 @@ define([
   'underscore',
   'backbone',
   'i18next',
-  'text!templates/planner',
+  'text!templates/planner.html',
   'views/planner/year_changer',
   'views/planner/day',
   'views/planner/info_bar',

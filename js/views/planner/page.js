@@ -2,7 +2,7 @@ define([
   'jquery',
   'underscore',
   'backbone',
-  'text!templates/planner',
+  'text!templates/planner.html',
   'views/planner/year_changer',
   'views/planner/calendar',
   'views/planner/holidays_list'
