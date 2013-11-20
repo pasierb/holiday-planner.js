@@ -39,14 +39,24 @@ module.exports = function(grunt) {
                     ]
                 }
             }
+        },
+        cssmin: {
+            main: {
+                files: {
+                    'css/main.min.css': [
+                        'css/bootstrap.min.css',
+                        'css/style.css'
+                    ]
+                }
+            }
         }
     });
 
-    grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-connect');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-jsbeautifier');
     grunt.loadNpmTasks('grunt-contrib-requirejs');
+    grunt.loadNpmTasks('grunt-contrib-cssmin');
 
     grunt.registerTask('server', ['connect', 'watch']);
 };
