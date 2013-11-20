@@ -1,61 +1,61 @@
 require.config({
-  baseUrl: "/js/",
-  urlArgs: 'cb=' + Math.random(),
-  shim: {
-    underscore: {
-      exports: "_"
+    baseUrl: "/js/",
+    urlArgs: 'cb=' + Math.random(),
+    shim: {
+        underscore: {
+            exports: "_"
+        },
+        backbone: {
+            deps: ['underscore', 'jquery'],
+            exports: 'Backbone'
+        },
+        bootstrap: {
+            deps: ['jquery'],
+            exports: 'Bootstrap'
+        },
+        jasmine: {
+            exports: 'jasmine'
+        },
+        'jasmine-html': {
+            deps: ['jasmine'],
+            exports: 'jasmine'
+        }
     },
-    backbone: {
-      deps: ['underscore', 'jquery'],
-      exports: 'Backbone'
-    },
-    bootstrap: {
-      deps: ['jquery'],
-      exports: 'Bootstrap'
-    },
-    jasmine: {
-      exports: 'jasmine'
-    },
-    'jasmine-html': {
-      deps: ['jasmine'],
-      exports: 'jasmine'
+    paths: {
+        jquery: "libs/jquery/jquery-2.0.3",
+        underscore: "libs/underscore/underscore",
+        backbone: "libs/backbone/backbone",
+        public_holidays: "libs/public_holidays/public_holidays",
+        bootstrap: "libs/bootstrap/bootstrap",
+        jasmine: '../tests/lib/jasmine/jasmine',
+        'jasmine-html': '../tests/lib/jasmine/jasmine-html',
+        text: "libs/require/text",
+        templates: "../templates",
+        spec: '../tests/spec'
     }
-  },
-  paths: {
-    jquery: "libs/jquery/jquery-2.0.3",
-    underscore: "libs/underscore/underscore",
-    backbone: "libs/backbone/backbone",
-    public_holidays: "libs/public_holidays/public_holidays",
-    bootstrap: "libs/bootstrap/bootstrap",
-    jasmine: '../tests/lib/jasmine/jasmine',
-    'jasmine-html': '../tests/lib/jasmine/jasmine-html',
-    text: "libs/require/text",
-    templates: "../templates",
-    spec: '../tests/spec'
-  }
 });
 
-require(['underscore', 'jquery', 'jasmine-html'], function(_, $, jasmine){
+require(['underscore', 'jquery', 'jasmine-html'], function(_, $, jasmine) {
 
-  var jasmineEnv = jasmine.getEnv();
-  jasmineEnv.updateInterval = 1000;
+    var jasmineEnv = jasmine.getEnv();
+    jasmineEnv.updateInterval = 1000;
 
-  var htmlReporter = new jasmine.HtmlReporter();
+    var htmlReporter = new jasmine.HtmlReporter();
 
-  jasmineEnv.addReporter(htmlReporter);
+    jasmineEnv.addReporter(htmlReporter);
 
-  jasmineEnv.specFilter = function(spec) {
-    return htmlReporter.specFilter(spec);
-  };
+    jasmineEnv.specFilter = function(spec) {
+        return htmlReporter.specFilter(spec);
+    };
 
-  var specs = [];
+    var specs = [];
 
-  specs.push('spec/views/planner/CalendarSpec');
+    specs.push('spec/views/planner/CalendarSpec');
 
-  $(function(){
-    require(specs, function(){
-      jasmineEnv.execute();
+    $(function() {
+        require(specs, function() {
+            jasmineEnv.execute();
+        });
     });
-  });
 
 });
