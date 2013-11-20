@@ -10,6 +10,10 @@ define([
         initialize: function(options) {
             this.holiday = options.holiday;
             this.vent = options.vent;
+
+            _.bindAll(this, "render");
+
+            this.vent.bind('i18n:loaded', this.render);
         },
         events: {
             "click .day": "dayClickHandler",
@@ -54,6 +58,7 @@ define([
             var tagName = (date.getDay() === 0 || date.getDay() === 6) ? "div" : "a";
             var title;
             var cssClasses = [(tagName === "div" ? "weekend" : "day")];
+            var i18nLabelKey = "date.weekday." + date.getDay();
 
             if (this.holiday) {
                 cssClasses.push("holiday");
@@ -62,7 +67,7 @@ define([
 
             this.$el.append($("<div></div>", {
                 class: "day-label",
-                html: i18n.t("date.weekday." + date.getDay())
+                html: i18n.exists(i18nLabelKey) ? i18n.t(i18nLabelKey) : date.getDay()
             }));
             this.$el.append($("<" + tagName + "></" + tagName + ">", {
                 class: cssClasses.join(" "),

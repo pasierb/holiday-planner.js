@@ -17,11 +17,13 @@ define([
             this.vent = options.vent;
             this.leave = new Leave();
 
-            _.bindAll(this, "setYear", "markDay", "unmarkDay", "setLocation");
+            _.bindAll(this, "setYear", "markDay", "unmarkDay", "setLocation", "render");
             options.vent.bind("setYear", this.setYear);
             options.vent.bind("markDay", this.markDay);
             options.vent.bind("unmarkDay", this.unmarkDay);
             options.vent.bind("setLocation", this.setLocation);
+
+            options.vent.bind('i18n:loaded', this.render);
         },
         setYear: function(year) {
             this.year = year;
@@ -71,12 +73,13 @@ define([
             var $month = $("<div></div>", {
                 class: "month"
             });
+            var i18nLabelKey = "date.month." + index;
             var $heading = $("<div></div>", {
-                class: "heading"
+                class: "heading",
+                html: i18n.exists(i18nLabelKey) ? i18n.t(i18nLabelKey) : index + 1
             });
             var dayView;
 
-            $heading.html(i18n.t("date.month." + index));
             $month.append($heading);
 
             date.setFullYear(this.year);

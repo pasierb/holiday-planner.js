@@ -26,11 +26,19 @@ require.config({
     }
 });
 
-require(['i18next', 'bootstrap', 'views/app'], function(i18n, Bootstrap, AppView) {
+require([
+    'i18next',
+    'bootstrap',
+    'views/app',
+    'events'
+], function(i18n, Bootstrap, AppView, vent) {
+    var app = new AppView();
+    app.render();
+
     i18n.init({
-        lng: 'en'
+        lng: 'en',
+        fallbackLng: false
     }, function() {
-        var app = new AppView();
-        app.render();
+        vent.trigger('i18n:loaded');
     });
 });
