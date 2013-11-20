@@ -24,6 +24,21 @@ module.exports = function(grunt) {
                 'js/views/**/*.js',
                 'js/*.js',
             ]
+        },
+        requirejs: {
+            compile: {
+                options: {
+                    baseUrl: 'js',
+                    mainConfigFile: 'js/main.js',
+                    dir: 'build-js',
+                    modules: [
+                        { name: 'main' },
+                        { name: 'views/app' },
+                        { name: 'views/planner/page' },
+                        { name: 'views/settings' }
+                    ]
+                }
+            }
         }
     });
 
@@ -31,6 +46,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-connect');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-jsbeautifier');
+    grunt.loadNpmTasks('grunt-contrib-requirejs');
 
     grunt.registerTask('server', ['connect', 'watch']);
 };
