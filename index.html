@@ -6,11 +6,42 @@
 <head>
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-
-  <title>HolidayPlannerApp.com</title>
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <meta name="description" content="Backboneboilerplate.com is a community driven effort to help developers learn and rapidly deploy single page web applications" />
-  <link rel="stylesheet" href="css/main.min.css" media="screen" />
+
+  <title>HolidayPlannerApp.com</title>
+
+  <link rel="stylesheet" href="css/main.min.css" media="all" />
+  <style type="text/css" media="all">
+    @media all and (max-width: 1199px) and (min-width: 1010px) {
+      .month {
+        width: 50%;
+        display: inline-block;
+      }
+      .days > div:nth-child(14n+1) {
+        margin-left: 100px !important;
+      }
+    }
+    @media all and (max-width: 1009px) and (min-width: 600px) {
+      .month {
+        width: 50%;
+        display: inline-block;
+      }
+      .days > div:nth-child(7n+1) {
+        margin-left: 100px !important;
+      }
+    }
+    @media all and (max-width: 599px) and (min-width: 510px) {
+      .days > div:nth-child(14n+1) {
+        margin-left: 100px !important;
+      }
+    }
+    @media all and (max-width: 509px) and (min-width: 100px) {
+      .days > div:nth-child(7n+1) {
+        margin-left: 100px !important;
+      }
+    }
+  </style>
 
   <script src="js/libs/public_holidays/public_holidays.js"></script>
   <script data-main="build-js/main" src="js/libs/require/require.js"></script>

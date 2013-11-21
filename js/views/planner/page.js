@@ -5,7 +5,8 @@ define([
     'text!templates/planner.html',
     'views/planner/year_changer',
     'views/planner/calendar',
-    'views/planner/holidays_list'
+    'views/planner/holidays_list',
+    'bootstrap/tab'
 ], function($, _, Backbone, plannerTemplate, YearChangerView, CalendarView, HolidaysListView) {
     var PlannerPage = Backbone.View.extend({
         initialize: function(options) {

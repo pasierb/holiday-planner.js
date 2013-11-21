@@ -33,11 +33,14 @@ module.exports = function(grunt) {
                     mainConfigFile: 'js/main.js',
                     dir: 'build-js',
                     modules: [
-                        { name: 'main' },
-                        { name: 'views/app' },
-                        { name: 'views/planner/page' },
-                        { name: 'views/settings' }
-                    ]
+                        {
+                            name: 'main',
+                            include: [
+                                'views/app',
+                                'views/planner/page',
+                                'views/settings'
+                            ]
+                        }                    ]
                 }
             }
         },

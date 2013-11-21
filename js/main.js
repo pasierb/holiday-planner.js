@@ -17,7 +17,7 @@ require.config({
         underscore: "libs/underscore/underscore",
         backbone: "libs/backbone/backbone",
         localstorage: "libs/backbone/localStorage.min",
-        bootstrap: "libs/bootstrap/bootstrap",
+        bootstrap: "libs/bootstrap",
         i18next: "libs/i18next/i18next.amd-1.6.3.min",
         public_holidays: "libs/public_holidays/public_holidays",
         text: "libs/require/text",
@@ -28,10 +28,9 @@ require.config({
 
 require([
     'i18next',
-    'bootstrap',
     'views/app',
     'events'
-], function(i18n, Bootstrap, AppView, vent) {
+], function(i18n, AppView, vent) {
     var app = new AppView();
     app.render();
 

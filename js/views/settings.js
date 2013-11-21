@@ -2,7 +2,8 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    'text!templates/settings.html'
+    'text!templates/settings.html',
+    'bootstrap/dropdown'
 ], function($, _, Backbone, settingsTemplate) {
     var SettingsView = Backbone.View.extend({
         initialize: function(options) {

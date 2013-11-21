@@ -34,6 +34,9 @@ h2#year-holder a {
   text-align: center;
   margin: 0 1px;
 }
+.calendar-container .month .days {
+  display: inline-block;
+}
 .calendar-container .month .heading {
   width: 100px;
   text-align: left;
